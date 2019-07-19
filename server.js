@@ -27,5 +27,5 @@ require("./routes/authRoutes")(app);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 
-//  client id
-//  client secret
+//  client id 525720073177-bbkspbo6dgeagk2mkju871u2c9be9a1n.apps.googleusercontent.com
+//  client secret LsQsldewiw2Z5p0VKBBT1jHM
