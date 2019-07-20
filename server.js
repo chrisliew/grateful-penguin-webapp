@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 
 require("./models/User");
 require("./services/passport");
@@ -18,14 +19,20 @@ app.use(
   })
 );
 
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+
+app.use(bodyParser.json());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Uses Routes
 require("./routes/authRoutes")(app);
+require("./routes/gratitudeRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
-
-//  client id 525720073177-bbkspbo6dgeagk2mkju871u2c9be9a1n.apps.googleusercontent.com
-//  client secret LsQsldewiw2Z5p0VKBBT1jHM

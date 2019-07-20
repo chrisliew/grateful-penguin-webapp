@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import * as actions from "../actions";
 
 class Header extends Component {
@@ -12,14 +11,13 @@ class Header extends Component {
         return <a href='/auth/google'>Login With Google</a>;
       default:
         return (
-          <li>
+          <li className='header__li'>
             <a href='/api/logout'>Logout</a>
           </li>
         );
     }
   }
   render() {
-    const { auth } = this.props;
     return (
       <div className='header'>
         {" "}
@@ -30,11 +28,8 @@ class Header extends Component {
         />
         <div>Grateful Penguin</div>
         <nav className='header__nav'>
-          <ul className='header__ul'>
-            <li className='header__li'>{this.renderContent()}</li>
-          </ul>
+          <ul className='header__ul'>{this.renderContent()}</ul>
         </nav>
-        {/* <button>Login With Google</button> */}
       </div>
     );
   }
