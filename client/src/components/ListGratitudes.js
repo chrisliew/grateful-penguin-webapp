@@ -7,18 +7,19 @@ class ListGratitudes extends Component {
   render() {
     const { gratitudes } = this.props.auth;
 
-    const listGratitudes = this.props.auth
-      ? gratitudes
-          .map(gratitude => (
-            <div className='gratitudes' key={gratitude._id}>
-              <h4 className='gratitudes__date'>
-                {moment(gratitude.date).format("MMMM Do YYYY")}
-              </h4>
-              <div>{gratitude.gratitude}</div>
-            </div>
-          ))
-          .reverse()
-      : null;
+    const listGratitudes =
+      this.props.auth && gratitudes
+        ? gratitudes
+            .map(gratitude => (
+              <div className='gratitudes' key={gratitude._id}>
+                <h4 className='gratitudes__date'>
+                  {moment(gratitude.date).format("MMMM Do YYYY")}
+                </h4>
+                <div>{gratitude.gratitude}</div>
+              </div>
+            ))
+            .reverse()
+        : null;
 
     return (
       <div>
