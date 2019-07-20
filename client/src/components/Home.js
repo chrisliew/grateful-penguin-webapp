@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 // import AnimatedPenguin from "./AnimatedPenguin";
 import ListGratitudes from "./ListGratitudes";
+import Mood from "./Mood";
 
 class Home extends Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class Home extends Component {
             />
           </form>
         </div>
+        <Mood />
         <ListGratitudes />
       </div>
     );

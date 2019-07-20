@@ -1,0 +1,15 @@
+.list-gratitudes__title {
+  text-align: center;
+}
+
+.gratitudes {
+  border: 1px solid black;
+  margin-top: 1em;
+  border-radius: 5px;
+  padding: 1em;
+  max-width: 40em;
+  &__date {
+    margin: 0;
+    padding-bottom: 1em;
+  }
+}
