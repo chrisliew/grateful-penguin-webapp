@@ -9,7 +9,14 @@
   padding: 1em;
   max-width: 40em;
   &__date {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding-bottom: 1em;
+  }
+  &__smiley-face {
+    width: 2em;
+    height: 2em;
+    margin-left: 1em;
   }
 }

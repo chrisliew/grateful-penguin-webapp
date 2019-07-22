@@ -24,7 +24,6 @@ class ListGratitudes extends Component {
     const item = this.state.randomColors[
       Math.floor(Math.random() * this.state.randomColors.length)
     ];
-    // this.setState({ setColor: item });
     return item;
   };
 
@@ -34,7 +33,7 @@ class ListGratitudes extends Component {
     const listGratitudes =
       this.props.auth && gratitudes
         ? gratitudes
-            .map(gratitude => (
+            .map((gratitude, index) => (
               //if the date is the same as the last date, group together
               <div
                 className='gratitudes'
@@ -43,6 +42,41 @@ class ListGratitudes extends Component {
               >
                 <h4 className='gratitudes__date'>
                   {moment(gratitude.date).format("MMMM Do YYYY")}
+                  {gratitude.mood === 1 ? (
+                    <img
+                      className='gratitudes__smiley-face'
+                      src='/images/unhappy.png'
+                      alt='unhappy'
+                    />
+                  ) : null}
+                  {gratitude.mood === 2 ? (
+                    <img
+                      className='gratitudes__smiley-face'
+                      src='/images/sad.png'
+                      alt='sad'
+                    />
+                  ) : null}
+                  {gratitude.mood === 3 ? (
+                    <img
+                      className='gratitudes__smiley-face'
+                      src='/images/confused.png'
+                      alt='confused'
+                    />
+                  ) : null}
+                  {gratitude.mood === 4 ? (
+                    <img
+                      className='gratitudes__smiley-face'
+                      src='/images/smiling.png'
+                      alt='smiling'
+                    />
+                  ) : null}
+                  {gratitude.mood === 5 ? (
+                    <img
+                      className='gratitudes__smiley-face'
+                      src='/images/happy.png'
+                      alt='happy'
+                    />
+                  ) : null}
                 </h4>
                 <div>{gratitude.gratitude}</div>
               </div>

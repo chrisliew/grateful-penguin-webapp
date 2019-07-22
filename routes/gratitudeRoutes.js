@@ -3,11 +3,11 @@ const User = mongoose.model("users");
 
 module.exports = app => {
   app.post("/api/gratitude", (req, res) => {
-    const { userId, gratitude } = req.body;
+    const { userId, gratitude, mood } = req.body;
     User.findByIdAndUpdate(
       userId,
       {
-        $push: { gratitudes: { gratitude: gratitude, mood: 0 } }
+        $push: { gratitudes: { gratitude: gratitude, mood: mood } }
       },
       { safe: true, upsert: true, new: true },
       function(err, model) {

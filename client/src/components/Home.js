@@ -26,9 +26,12 @@ class Home extends Component {
     event.preventDefault();
     const gratitude = {
       gratitude: this.state.addGratitude,
-      userId: this.props.auth._id
+      userId: this.props.auth._id,
+      mood: this.props.mood ? this.props.mood : 0
     };
-    this.props.addGratitude(gratitude).then(res => this.props.fetchUser());
+    this.props
+      .addGratitude(gratitude)
+      .then(res => this.props.fetchUser().then(this.props.addMood(0)));
     this.setState({ addGratitude: "" });
   };
 
