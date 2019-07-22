@@ -8,11 +8,26 @@ class Header extends Component {
       case null:
         return "Still deciding";
       case false:
-        return <a href='/auth/google'>Login With Google</a>;
+        return (
+          <div>
+            {this.props.auth.firstName}
+            <a href='/auth/google' style={{ textDecoration: "none" }}>
+              Login With Google
+            </a>
+          </div>
+        );
       default:
         return (
           <li className='header__li'>
-            <a href='/api/logout'>Logout</a>
+            <div>
+              {this.props.auth.firstName}
+              <a
+                href='/api/logout'
+                style={{ textDecoration: "none", paddingLeft: "1em" }}
+              >
+                Logout
+              </a>
+            </div>
           </li>
         );
     }
